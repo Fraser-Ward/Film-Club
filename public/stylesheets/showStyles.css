@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.card-image {
+    height: 360px;
+    width: 300px;
+    margin-left: 30px;
+    max-width: 100%; 
+    display: block; 
+    height: auto;
+}
+
+#genre1 {
+    margin-left: 80px;
+    margin-top: 10px;
+}
+
+#genre2 {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#middle-column {
+    margin-left: 30px;
+}
+
+/* for JQuery */
+#content {
+    display: none
+}
+.button-container {
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}

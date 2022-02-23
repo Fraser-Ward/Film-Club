@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#button{
+    margin-left: 10px;
+}
+
+#card1 {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(146, 146, 146);
+    border-radius: 2%;
+} 
+
+#filmTitle {
+font-size: 15px;
+height: 45px;
+} 
+
+.card-body {
+    max-height: 86.5px;
+    height: 85px;
+    width: 286px;
+    word-wrap: break-word;
+} 
+
+.card-thumbnail {
+height:428.65px;
+width:286px;
+}
+
+#card1:hover {
+    border: 1px solid rgba(#F2F4F8, 0);
+    box-shadow: 0 15px 20px rgba(0,0,0,.05), 0 0 5px rgba(0,0,0,.1);
+    background-color: rgb(233, 233, 233);
+}

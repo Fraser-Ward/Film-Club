@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Film Club - Search</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/stylesheets/indexStyles.css">
+</head>
+
+<body>
+  <%- include('./partials/navbar')%>
+
+    <div class="mt-3 mb-3">
+      <form action="/films" method="GET" class="d-flex justify-content-center">
+        <input type="search" name="search" class="form-control w-25" placeholder="Search a Film..." required />
+        <button id="button" class="btn btn-primary ml-3">Search <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg></button>
+      </form>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <% data['results'].forEach(film=> { %>
+          <% if(film["poster_path"] && film["release_date"]) { %> 
+          <div class="col-sm-6 col-md-6 col-lg-4" id="column">
+            <div class="mb-3 mt-3" id="card1">
+              <div class="card-thumbnail">
+                <a href="/films/<%=film['id']%>" id="filmQuery">
+                  <img class="card-img-top" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2<%=film["poster_path"]%>"
+                  alt="Card image cap">
+                </a>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title text-center" id="filmTitle">
+                  <%=film["title"]%><span class="card-text text-center text-muted"> (<%=film["release_date"][0]%><%=film["release_date"][1]%><%=film["release_date"][2]%><%=film["release_date"][3]%>)</span>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <% } %> 
+          <% }); %>
+      </div>
+    </div>
+    <%- include('./partials/footer')%>
+</body>
+
+</html>
